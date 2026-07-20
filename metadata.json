@@ -1,0 +1,6 @@
+{
+  "name": "Aarav & Ananya's Wedding Love Story",
+  "description": "An elegant, premium, cinematic digital wedding album and love story website for Aarav & Ananya, featuring animated timelines, an interactive scrapbook, and a romantic instrumental playlist.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
