@@ -1,12 +1,17 @@
 import { WeddingData } from "../types";
+import firstSmileImg from "../assets/images/couple_first_smile_1784539763659.jpg";
+import proposalImg from "../assets/images/couple_proposal_1784539778986.jpg";
+import palaceImg from "../assets/images/couple_palace_1784539793889.jpg";
+import weddingImg from "../assets/images/couple_wedding_1784539809510.jpg";
+import themeBgImg from "../assets/images/wedding_theme_bg_1784539824601.jpg";
 
-// Note: Using the exact paths of the premium pre-wedding images we generated
+// Note: Using the imported assets so they are bundled correctly in production
 export const weddingImages = {
-  firstSmile: "/src/assets/images/couple_first_smile_1784539763659.jpg",
-  proposal: "/src/assets/images/couple_proposal_1784539778986.jpg",
-  palace: "/src/assets/images/couple_palace_1784539793889.jpg",
-  wedding: "/src/assets/images/couple_wedding_1784539809510.jpg",
-  themeBg: "/src/assets/images/wedding_theme_bg_1784539824601.jpg"
+  firstSmile: firstSmileImg,
+  proposal: proposalImg,
+  palace: palaceImg,
+  wedding: weddingImg,
+  themeBg: themeBgImg
 };
 
 export const weddingData: WeddingData = {
