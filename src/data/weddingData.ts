@@ -5,7 +5,7 @@ import palaceImg from "../assets/images/couple_palace_1784539793889.jpg";
 import weddingImg from "../assets/images/couple_wedding_1784539809510.jpg";
 import themeBgImg from "../assets/images/wedding_theme_bg_1784539824601.jpg";
 
-// Note: Using the imported assets so they are bundled correctly in production
+// Bundled high-resolution assets
 export const weddingImages = {
   firstSmile: firstSmileImg,
   proposal: proposalImg,
@@ -20,7 +20,9 @@ export const weddingData: WeddingData = {
     bride: "Ananya",
     namesJoined: "Aarav ❤️ Ananya",
     weddingDate: "December 18, 2026",
-    weddingVenue: "The Royal Palace Resort, Jaipur"
+    weddingVenue: "The Royal Palace Resort, Jaipur",
+    // Target timestamp: Dec 18, 2026 18:00:00 (Jaipur / IST)
+    targetTimestamp: new Date("2026-12-18T18:00:00+05:30").getTime(),
   },
   quotes: [
     "Every love story is beautiful, but ours is my favorite.",
@@ -178,6 +180,156 @@ export const weddingData: WeddingData = {
       title: "Dreaming Big",
       artist: "Inspiring Romance Piano",
       url: "https://assets.mixkit.co/music/preview/mixkit-dreaming-big-31.mp3"
+    }
+  ],
+  events: [
+    {
+      id: "evt-mehendi",
+      title: "Mehendi & Sangeet Gala",
+      subTitle: "An Evening of Music, Henna & Rhythmic Joy",
+      date: "Dec 17, 2026",
+      time: "5:30 PM Onwards",
+      venue: "Courtyard of Whispering Fountains",
+      dressCode: "Festive Indian & Vivid Jewel Tones",
+      badge: "Evening Soirée",
+      iconName: "music",
+      description: "Delicate henna swirls, live dhol beats, spontaneous dance performances by family, and an enchanting twilight banquet under fairy lights."
+    },
+    {
+      id: "evt-haldi",
+      title: "Haldi & Phoolon Ki Holi",
+      subTitle: "A Sunlit Morning of Turmeric & Flower Petals",
+      date: "Dec 18, 2026",
+      time: "10:00 AM – 1:00 PM",
+      venue: "The Lotus Pavilion Terraces",
+      dressCode: "Sunshine Yellow, Ochre & Warm Pastels",
+      badge: "Morning Blessing",
+      iconName: "sun",
+      description: "A joyful traditional ceremony of fragrant turmeric paste and thousands of marigold petals showered in celebration of auspicious beginnings."
+    },
+    {
+      id: "evt-baraat",
+      title: "The Royal Baraat & Varmala",
+      subTitle: "The Grand Procession & Exchange of Garlands",
+      date: "Dec 18, 2026",
+      time: "4:30 PM",
+      venue: "Grand Palace Forecourt",
+      dressCode: "Regal Traditional Elegance",
+      badge: "Grand Entrance",
+      iconName: "sparkles",
+      description: "A majestic arrival with brass band serenades, royal turbans, and the emotional Varmala exchange as rose petals fall like celestial confetti."
+    },
+    {
+      id: "evt-pheras",
+      title: "The Sacred Pheras",
+      subTitle: "Seven Sacred Vows Around the Holy Fire",
+      date: "Dec 18, 2026",
+      time: "6:30 PM – 8:30 PM",
+      venue: "The Celestial Star Mandap",
+      dressCode: "Traditional Royal Attire",
+      badge: "Sacred Union",
+      iconName: "flame",
+      description: "Circling the eternal flame, reciting age-old Sanskrit mantras, and sealing seven lifelong promises under the starlit Rajasthani sky."
+    },
+    {
+      id: "evt-reception",
+      title: "Imperial Reception Dinner",
+      subTitle: "Toasts, Fine Dining & Starlight Dancing",
+      date: "Dec 18, 2026",
+      time: "8:30 PM Till Midnight",
+      venue: "The Sheesh Mahal Grand Ballroom",
+      dressCode: "Black Tie or Royal Indian Haute Couture",
+      badge: "Celebration Gala",
+      iconName: "glass",
+      description: "A royal culinary banquet, sparkling champagne toasts, heartfelt speeches, and music that carries the celebration well into the night."
+    }
+  ],
+  quiz: [
+    {
+      id: 1,
+      question: "Where did Aarav & Ananya share their very first conversation?",
+      options: [
+        "At a rooftop sunset party in Mumbai",
+        "In a cozy artisan coffee cafe in Jaipur",
+        "During a college library study group",
+        "At an airport transit terminal"
+      ],
+      correctAnswerIndex: 1,
+      funFact: "Aarav was so nervous he ordered a hot latte in peak summer just to keep talking!"
+    },
+    {
+      id: 2,
+      question: "Who said 'I Love You' first?",
+      options: [
+        "Aarav during a midnight stargazing drive",
+        "Ananya right after her graduation ceremony",
+        "Both simultaneously while getting caught in the rain",
+        "Aarav's Golden Retriever accidentally spilled the secret"
+      ],
+      correctAnswerIndex: 0,
+      funFact: "Aarav practiced the speech for 3 weeks before finally whispering it under the stars."
+    },
+    {
+      id: 3,
+      question: "What is their absolute favorite shared weekend ritual?",
+      options: [
+        "Marathon binge-watching historical dramas with homemade pizza",
+        "Extreme mountain biking and rock climbing",
+        "Going to vintage flea markets and vinyl record stores",
+        "Competing in weekend pottery classes"
+      ],
+      correctAnswerIndex: 0,
+      funFact: "They have a strict rule: the person who loses rock-paper-scissors handles dessert duty!"
+    },
+    {
+      id: 4,
+      question: "What special song was playing when Aarav proposed?",
+      options: [
+        "An acoustic violin rendition of their favorite indie melody",
+        "A classical symphony by Chopin",
+        "A lively acoustic folk duet",
+        "Total silence except for the wind in the garden"
+      ],
+      correctAnswerIndex: 0,
+      funFact: "Aarav secretly hired a classical violinist who hid behind the garden trellis until the ring came out!"
+    }
+  ],
+  initialBlessings: [
+    {
+      id: "blessing-1",
+      author: "Vikram & Sunita (Parents)",
+      relation: "Family",
+      message: "May your journey together be as timeless as the stars and as sweet as the fragrance of jasmines. Our heartfelt blessings for a lifetime of unconditional love and companionship.",
+      sealEmoji: "🌸",
+      timestamp: "Today at 2:15 PM",
+      likes: 24
+    },
+    {
+      id: "blessing-2",
+      author: "Rohan & Dev",
+      relation: "Childhood Friend",
+      message: "From watching Aarav stress over his first text to seeing him marry his dream girl today—could not be prouder. May your life be filled with non-stop laughter and adventures!",
+      sealEmoji: "🥂",
+      timestamp: "Today at 3:40 PM",
+      likes: 19
+    },
+    {
+      id: "blessing-3",
+      author: "Meera & Shreya",
+      relation: "College Friend",
+      message: "Ananya, you are the most radiant bride the world has ever seen. Aarav, you are one lucky gentleman. Wishing you both endless romance and dance parties!",
+      sealEmoji: "💍",
+      timestamp: "Today at 4:10 PM",
+      likes: 31
+    },
+    {
+      id: "blessing-4",
+      author: "Dr. K. N. Sharma",
+      relation: "Well-Wisher",
+      message: "May God bless this sacred union with peace, abundance, and unwavering respect. May every day deepen your devotion to each other.",
+      sealEmoji: "🪷",
+      timestamp: "Today at 5:02 PM",
+      likes: 14
     }
   ]
 };

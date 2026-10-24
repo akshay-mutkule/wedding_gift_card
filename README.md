@@ -1,29 +1,62 @@
-# 💍 Eternal Love — Digital Wedding Gift Card & Memory Book
+# 💍 Eternal Love — Royal Digital Wedding Gift Card & Memory Experience
 
-A modern, elegant, and interactive digital wedding experience crafted with **React 18**, **Tailwind CSS**, and **Framer Motion**. Designed to celebrate love with responsive animations, interactive photo scrapbooks, a romantic story timeline, customizable vows, and ambient background music.
+A luxury-tier, highly interactive digital wedding invitation, storybook, and celebration portal crafted with **React 18**, **TypeScript**, **Tailwind CSS**, and **Framer Motion**. Designed to deliver an unforgettable royal experience with 3D wax-sealed unboxing, live countdowns, ceremonial itineraries, interactive guestbooks, couple trivia, sound effects synthesis, and high-resolution keepsake souvenir generation.
 
 ---
 
-## ✨ Features
+## ✨ Advanced Features
 
-- **⚡ Instant Interactive Hero:** Fast and fluid entrance transition triggered by tapping the heart icon.
-- **📖 Memory Scrapbook:** Page-turning digital memory book featuring polaroid photos, wax seals, and romantic journal entries.
-- **⏳ Romantic Journey Timeline:** Interactive 3D carousel highlighting milestone moments from first smile to wedding day.
-- **📸 High-Definition Slideshow:** Auto-playing photo slideshow with custom controls and romantic captions.
-- **🎵 Ambient Music Player:** Built-in floating audio player with playlist selector and ambient web audio synthesis.
-- **💌 Wedding Vows & Wishes:** Interactive blessing card and virtual guestbook section to leave heartfelt messages.
-- **📱 100% Mobile Friendly:** Optimised responsive layouts with smooth touch controls for smartphone and tablet screens.
+### 👑 1. 3D Royal Wax-Sealed Envelope Unboxing
+- Realistic crimson & 24K gold envelope with monograms `A & A`.
+- Tap to crack the wax seal with tactile audio feedback and unfold the royal parchment invitation scroll.
+
+### ⏳ 2. Auspicious Live Countdown & Milestones
+- Real-time countdown clock (Days, Hours, Minutes, Seconds) ticking down to the wedding moment.
+- Togetherness counters (Days of Love, Coffee Dates, Cities Explored, Infinite Promises).
+- One-tap **Add to Google Calendar** and **.ics export** for Apple Calendar & Outlook.
+- Instant venue address clipboard copy.
+
+### 📜 3. The Royal Itinerary & Ceremonies Guide
+- Five royal event spotlights: *Mehendi & Sangeet*, *Haldi & Phoolon Ki Holi*, *The Royal Baraat*, *The Sacred Pheras*, and *Imperial Reception Gala*.
+- Detailed event timing, venue locations, dress code color swatches, and Google Maps directions link.
+
+### 📖 4. Interactive Memory Scrapbook
+- Digital physical book experience with realistic page-turning animations.
+- Polaroid snapshots with captions, dried floral decorators, and wax seals.
+- Responsive two-page desktop spread and single-page mobile flip.
+
+### 💖 5. Digital Guestbook & Live Wishes Wall
+- Guests can leave personalized wedding blessings with custom ceremonial seal stamps (`🌸`, `💍`, `🥂`, `🪷`, `🕊️`, `✨`).
+- Persistent storage using `localStorage` so messages stay saved across sessions.
+- Real-time like counters and floating live emoji reaction bursts across the screen.
+
+### 🏆 6. Romantic Couple Trivia Challenge
+- "How Well Do You Know Aarav & Ananya?" mini-quiz.
+- Instant answer feedback, behind-the-scenes fun facts, score tallying, and Cupid's VIP ranking badges.
+
+### 🖼️ 7. Digital Keepsake Invitation Card Generator
+- Instant HTML5 Canvas rendering of a high-resolution royal invitation keepsake card.
+- Download directly as a high-definition PNG image or share via the Web Share API.
+
+### 🌸 8. Dual-Cannon Rose Petal & Gold Foil Confetti
+- Floating "Shower Blessings" action button that cascades vibrant rose petals and 24K gold foil flakes across the viewport.
+
+### 🎵 9. Ambient Audio Player & Web Audio SoundFX Synthesizer
+- Built-in multi-track romantic music player with volume slider and playlist drawer.
+- Zero-latency Web Audio API synthesizer for harp glissandos, wax seal stamps, page-turn swooshes, and wedding blessing bells.
+- Interactive SFX mute/unmute control.
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Frontend Framework:** React 18 with Vite
-- **Styling & Layout:** Tailwind CSS
-- **Animations:** `motion/react` (Framer Motion)
+- **Frontend:** React 18, TypeScript, Vite
+- **Styling:** Tailwind CSS with custom glassmorphism and gold gradients
+- **Animations:** Framer Motion (`motion/react`)
+- **Particle Effects:** `canvas-confetti` + Custom Canvas Petal Physics
+- **Audio Engine:** HTML5 Audio + Web Audio API synthesizer
 - **Icons:** `lucide-react`
-- **Backend / Deployment Server:** Node.js Express server (`server.js`)
-- **Language:** TypeScript
+- **Backend / Production Server:** Node.js Express server (`server.js`)
 
 ---
 
@@ -63,16 +96,14 @@ A modern, elegant, and interactive digital wedding experience crafted with **Rea
 
 ### Local Production Build
 
-To test the production build locally:
-
 ```bash
 npm run build
 npm start
 ```
 
-### Deploying to Render / Heroku / Cloud Hosts
+### Deploying to Render, Heroku, or Cloud VPS
 
-This repository includes a production Express server (`server.js`) that serves static assets from `dist/`:
+This repository is pre-configured with a production-ready Express server (`server.js`):
 
 - **Build Command:** `npm run build` (or `yarn build`)
 - **Start Command:** `npm start` (or `yarn start`)
@@ -84,32 +115,43 @@ This repository includes a production Express server (`server.js`) that serves s
 
 ```text
 ├── src/
-│   ├── assets/        # High-res bundled couple photos & backgrounds
-│   ├── components/    # Modular React components
-│   │   ├── LoadingScreen.tsx
-│   │   ├── HeroSection.tsx
-│   │   ├── TimelineSection.tsx
-│   │   ├── SlideshowSection.tsx
-│   │   ├── MemoryBookSection.tsx
-│   │   ├── VowsSection.tsx
-│   │   └── MusicPlayer.tsx
-│   ├── data/          # Wedding data & story content
-│   ├── types.ts       # Shared TypeScript interfaces
-│   ├── App.tsx        # Main application layout
-│   └── main.tsx       # Entry point
-├── server.js          # Express server for static file hosting in production
-├── package.json       # Build scripts and dependencies
-└── vite.config.ts     # Vite configuration
+│   ├── assets/images/       # Bundled high-resolution couple photographs
+│   ├── components/          # Modular React components
+│   │   ├── AmbientBackground.tsx    # Canvas floating petals & bokeh engine
+│   │   ├── BlessingCannonFAB.tsx    # Floating flower petal & gold confetti cannon
+│   │   ├── CountdownSection.tsx     # Live countdown, stats & calendar export
+│   │   ├── FinalSection.tsx         # Floating lanterns & wedding rings finale
+│   │   ├── HeroSection.tsx          # Majestic landing & quick action triggers
+│   │   ├── KeepsakeModal.tsx        # Canvas digital invitation card generator
+│   │   ├── LoadingScreen.tsx        # Asset preloading with gold progress bar
+│   │   ├── LoveQuizSection.tsx      # Interactive romantic trivia challenge
+│   │   ├── MemoryBookSection.tsx    # Page-flipping polaroid scrapbook
+│   │   ├── MusicPlayer.tsx          # Ambient playlist audio deck
+│   │   ├── RoyalEnvelopeModal.tsx   # 3D wax-sealed invitation unboxing
+│   │   ├── RoyalItinerarySection.tsx# Ceremonies guide & dress code schedules
+│   │   ├── SlideshowSection.tsx     # Fullscreen photo slideshow
+│   │   ├── TimelineSection.tsx      # 3D carousel milestone journey
+│   │   └── WishesWallSection.tsx    # Guestbook, likes & floating reactions
+│   ├── data/
+│   │   └── weddingData.ts   # Couple details, events, trivia & playlists
+│   ├── utils/
+│   │   └── soundFX.ts       # Web Audio API romantic sound effect synthesizer
+│   ├── types.ts             # Shared TypeScript models
+│   ├── App.tsx              # Main orchestrator & floating header navigation
+│   └── main.tsx             # React DOM entry point
+├── server.js                # Express static server for cloud hosting
+├── package.json             # Build scripts and dependencies
+└── vite.config.ts           # Vite configuration
 ```
 
 ---
 
 ## 💖 Customization
 
-To personalize this wedding gift card for a different couple:
-1. Update photo assets in `src/assets/images/`.
-2. Edit story milestones and memories in `src/data/weddingData.ts`.
-3. Customize page titles in `index.html`.
+To adapt this card for any other wedding or celebration:
+1. Replace or add photos in `src/assets/images/`.
+2. Update names, dates, events, trivia questions, and vows in `src/data/weddingData.ts`.
+3. Customize the document title in `index.html`.
 
 ---
 

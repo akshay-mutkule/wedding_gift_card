@@ -29,7 +29,38 @@ export interface Song {
   id: string;
   title: string;
   artist: string;
-  url: string; // We can use high-quality royalty-free instrumental audio URLs
+  url: string;
+}
+
+export interface WeddingEvent {
+  id: string;
+  title: string;
+  subTitle: string;
+  date: string;
+  time: string;
+  venue: string;
+  dressCode: string;
+  description: string;
+  badge: string;
+  iconName: "music" | "sun" | "sparkles" | "flame" | "glass";
+}
+
+export interface GuestBlessing {
+  id: string;
+  author: string;
+  relation: "Family" | "College Friend" | "Childhood Friend" | "Colleague" | "Well-Wisher";
+  message: string;
+  sealEmoji: string;
+  timestamp: string;
+  likes: number;
+}
+
+export interface QuizQuestion {
+  id: number;
+  question: string;
+  options: string[];
+  correctAnswerIndex: number;
+  funFact: string;
 }
 
 export interface WeddingData {
@@ -39,10 +70,14 @@ export interface WeddingData {
     namesJoined: string;
     weddingDate: string;
     weddingVenue: string;
+    targetTimestamp: number;
   };
   quotes: string[];
   timeline: TimelineItem[];
   scrapbook: ScrapbookPage[];
   slideshowImages: ImageAsset[];
   playlist: Song[];
+  events: WeddingEvent[];
+  quiz: QuizQuestion[];
+  initialBlessings: GuestBlessing[];
 }
