@@ -158,10 +158,75 @@ class SoundEngine {
         gain.connect(this.ctx!.destination);
 
         osc.start(time);
-        osc.stop(time + 1.25);
-      });
-    } catch {}
-  }
+         osc.stop(time + 1.25);
+       });
+     } catch {}
+   }
+
+   // Ethereal floating tone for lantern ascending into the sky
+   playLanternRise() {
+     if (!this.enabled) return;
+     try {
+       this.initCtx();
+       if (!this.ctx) return;
+
+       const now = this.ctx.currentTime;
+       const osc1 = this.ctx.createOscillator();
+       const osc2 = this.ctx.createOscillator();
+       const gain = this.ctx.createGain();
+
+       osc1.type = "sine";
+       osc1.frequency.setValueAtTime(329.63, now); // E4
+       osc1.frequency.exponentialRampToValueAtTime(880, now + 1.5); // A5
+
+       osc2.type = "triangle";
+       osc2.frequency.setValueAtTime(440, now);
+       osc2.frequency.exponentialRampToValueAtTime(1318.51, now + 1.5);
+
+       gain.gain.setValueAtTime(0.08, now);
+       gain.gain.linearRampToValueAtTime(0.12, now + 0.5);
+       gain.gain.exponentialRampToValueAtTime(0.0001, now + 1.6);
+
+       osc1.connect(gain);
+       osc2.connect(gain);
+       gain.connect(this.ctx.destination);
+
+       osc1.start(now);
+       osc2.start(now);
+       osc1.stop(now + 1.6);
+       osc2.stop(now + 1.6);
+     } catch {}
+   }
+
+   // Punchy rhythmic celebratory chime for Jukebox upvoting & DJ chart
+   playJukeboxUpvote() {
+     if (!this.enabled) return;
+     try {
+       this.initCtx();
+       if (!this.ctx) return;
+
+       const now = this.ctx.currentTime;
+       const notes = [440, 554.37, 659.25, 880]; // A major arpeggio
+       notes.forEach((f, idx) => {
+         const osc = this.ctx!.createOscillator();
+         const gain = this.ctx!.createGain();
+         const t = now + idx * 0.04;
+
+         osc.type = "sine";
+         osc.frequency.setValueAtTime(f, t);
+
+         gain.gain.setValueAtTime(0.1, t);
+         gain.gain.exponentialRampToValueAtTime(0.001, t + 0.3);
+
+         osc.connect(gain);
+         gain.connect(this.ctx!.destination);
+
+         osc.start(t);
+         osc.stop(t + 0.35);
+       });
+     } catch {}
+   }
 }
 
 export const soundFX = new SoundEngine();
+

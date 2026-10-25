@@ -8,13 +8,16 @@ interface HeroSectionProps {
   onOpenStory: () => void;
   onOpenEnvelope: () => void;
   onOpenKeepsake: () => void;
+  onOpenRSVP: () => void;
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({
   onOpenStory,
   onOpenEnvelope,
   onOpenKeepsake,
+  onOpenRSVP,
 }) => {
+
   const { couple } = weddingData;
 
   // Stagger animation container
@@ -162,11 +165,22 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </motion.div>
         </motion.div>
 
-        {/* ADVANCED QUICK INTERACTION ACTIONS: Royal Envelope & Keepsake Card */}
+        {/* ADVANCED QUICK INTERACTION ACTIONS: RSVP Pass, Royal Envelope & Keepsake Card */}
         <motion.div
           variants={itemVariants}
           className="flex flex-wrap items-center justify-center gap-3 pt-2"
         >
+          <button
+            onClick={() => {
+              soundFX.playChime(1050);
+              onOpenRSVP();
+            }}
+            className="px-5 py-2.5 rounded-full bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-stone-950 text-xs font-mono font-semibold tracking-wider uppercase flex items-center gap-2 shadow-lg shadow-amber-500/25 transition-all cursor-pointer transform hover:scale-105"
+          >
+            <Sparkles className="w-3.5 h-3.5" />
+            RSVP &bull; Royal Boarding Pass
+          </button>
+
           <button
             onClick={() => {
               soundFX.playWaxSealStamp();
@@ -175,7 +189,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             className="px-4 py-2 rounded-full glass-panel border border-amber-300/30 hover:border-amber-300 text-stone-200 hover:text-amber-100 text-xs font-mono tracking-wider uppercase flex items-center gap-2 transition-all hover:bg-stone-900 shadow-md cursor-pointer"
           >
             <Mail className="w-3.5 h-3.5 text-amber-300" />
-            Unbox Royal Wax-Sealed Envelope
+            Royal Wax-Sealed Envelope
           </button>
 
           <button
@@ -186,9 +200,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             className="px-4 py-2 rounded-full glass-panel border border-amber-300/30 hover:border-amber-300 text-stone-200 hover:text-amber-100 text-xs font-mono tracking-wider uppercase flex items-center gap-2 transition-all hover:bg-stone-900 shadow-md cursor-pointer"
           >
             <Download className="w-3.5 h-3.5 text-amber-300" />
-            Digital Keepsake Card
+            Keepsake Card
           </button>
         </motion.div>
+
 
       </motion.div>
     </div>

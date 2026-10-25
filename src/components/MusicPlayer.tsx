@@ -141,7 +141,7 @@ export const MusicPlayer: React.FC<MusicPlayerProps> = ({ isStoryOpened }) => {
             </div>
 
             {/* Currently playing cover card layout */}
-            <div className="flex items-center gap-4 mb-4">
+            <div className="flex items-center gap-4 mb-3">
               {/* Disc vinyl */}
               <div className="relative w-14 h-14 rounded-full bg-stone-950 flex items-center justify-center border border-amber-300/30 overflow-hidden flex-shrink-0">
                 <motion.div
@@ -163,8 +163,29 @@ export const MusicPlayer: React.FC<MusicPlayerProps> = ({ isStoryOpened }) => {
                 <p className="text-[10px] text-stone-400 font-mono truncate uppercase">
                   {currentTrack.artist}
                 </p>
+                <div className="flex items-center gap-1 mt-1 text-[10px] text-amber-300/80 font-mono">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+                  <span>Stereo Master HD</span>
+                </div>
               </div>
             </div>
+
+            {/* DYNAMIC SPECTRUM WAVEFORM VISUALIZER */}
+            <div className="h-8 w-full bg-black/40 rounded-lg p-1 border border-amber-300/10 mb-3 flex items-end justify-between gap-1 overflow-hidden">
+              {[...Array(24)].map((_, i) => (
+                <div
+                  key={i}
+                  className="flex-1 bg-gradient-to-t from-amber-500 to-amber-200 rounded-t-sm transition-all duration-150"
+                  style={{
+                    height: isPlaying
+                      ? `${Math.max(15, Math.sin((trackProgress * 0.2) + i * 0.6) * 45 + 50 + (i % 3) * 10)}%`
+                      : "15%",
+                    opacity: isPlaying ? 0.85 : 0.25,
+                  }}
+                />
+              ))}
+            </div>
+
 
             {/* PROGRESS TRACK BAR BAR */}
             <div className="mb-4">

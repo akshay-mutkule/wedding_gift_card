@@ -333,3 +333,181 @@ export const weddingData: WeddingData = {
     }
   ]
 };
+
+export const palaceHotspots = [
+  {
+    id: "mandap",
+    name: "The Sacred Mandap by the Lotus Waters",
+    hindiTitle: "पवित्र मण्डप",
+    subtitle: "Sacred Vedic Pheras & Eternal Vows",
+    description: "Framed with 10,000 scented marigolds and Mogra creepers, situated on an illuminated floating marble pavilion overlooking reflections of the Aravali hills.",
+    timing: "Dec 18 • 07:00 PM onwards",
+    vibe: "Divine, spiritual, candle-lit tranquility with temple bells & Vedic chants.",
+    features: ["Sacred Fire Pit (Havan Kund)", "Flower Petal Showers", "Gold Brocade Seating", "Live Shenai Ensemble"],
+    image: weddingImages.wedding,
+    mapCoordinates: { x: 50, y: 72 }
+  },
+  {
+    id: "sheesh-mahal",
+    name: "The Sheesh Mahal Glass Ballroom",
+    hindiTitle: "शीश महल",
+    subtitle: "The Royal Sangeet & Musical Night",
+    description: "An awe-inspiring royal hall adorned with hand-cut Belgian concave mirrors, crystal chandeliers, and an acoustic sound amphitheatre.",
+    timing: "Dec 17 • 07:30 PM till late",
+    vibe: "Electrifying, opulent, cocktail sparkle and bass-heavy dance floor.",
+    features: ["Mirror Mosaic Walls", "LED Dance Floor", "Royal Craft Cocktail Bar", "DJ & Live Dhol Stage"],
+    image: weddingImages.palace,
+    mapCoordinates: { x: 74, y: 38 }
+  },
+  {
+    id: "fountain-courtyard",
+    name: "Courtyard of 100 Fountains",
+    hindiTitle: "शाही बाराती प्रांगण",
+    subtitle: "Royal Baraat Procession & Rose Welcome",
+    description: "The grand stone ceremonial gateway where the royal procession arrives with royal caparisoned vintage cars, traditional Nagadas, and gold rose water sprays.",
+    timing: "Dec 18 • 05:00 PM",
+    vibe: "Regal fanfare, energetic brass band, and warm Rajasthani hospitality.",
+    features: ["Illuminated Jet Fountains", "Vintage Car Arches", "Gulab Jal Welcome Gate", "Trumpet & Nagada Balcony"],
+    image: weddingImages.firstSmile,
+    mapCoordinates: { x: 26, y: 44 }
+  },
+  {
+    id: "mughal-gardens",
+    name: "The Scented Mughal Gardens",
+    hindiTitle: "मुगल उद्यान",
+    subtitle: "Sunny Haldi Ceremony & Yellow Splendor",
+    description: "Manicured geometric gardens planted with night-blooming jasmine, marigold canopies, and herbal turmeric basins under the morning winter sun.",
+    timing: "Dec 17 • 10:30 AM",
+    vibe: "Vibrant yellow sunshine, organic marigold pool dips, and family laughs.",
+    features: ["Floral Holi Flower Pool", "Turmeric Champa Stations", "Fresh Sugarcane Juice Bar", "Traditional Dholki Beats"],
+    image: weddingImages.proposal,
+    mapCoordinates: { x: 42, y: 22 }
+  },
+  {
+    id: "sunset-terrace",
+    name: "The Sunset Heritage Terraces",
+    hindiTitle: "धरोहर छत",
+    subtitle: "Mehendi & Folk High Tea",
+    description: "Open-air sandstone ramparts offering an uninterrupted 360-degree panoramic vista of Jaipur's pink city skyline and golden sunset.",
+    timing: "Dec 16 • 03:30 PM",
+    vibe: "Intricate henna fragrance, Kalbelia folk performances, and artisan chaat.",
+    features: ["Artisan Henna Master Pavilions", "Rajasthani Puppeteers", "Royal Kulhad Chai & Jalebi", "Sunset Viewpoint"],
+    image: weddingImages.themeBg,
+    mapCoordinates: { x: 82, y: 68 }
+  }
+];
+
+export const jukeboxPlaylist = [
+  {
+    id: "track-1",
+    title: "London Thumakda & Dhol Mashup",
+    artist: "Labh Janjua & Sonu Kakkar",
+    genre: "Bhangra & Dhol" as const,
+    votes: 42,
+    duration: "3:48",
+    suggestedBy: "Groom's Squad",
+    previewFrequency: 440
+  },
+  {
+    id: "track-2",
+    title: "Kesariya (Royal Sitar & Acoustic Reprise)",
+    artist: "Arijit Singh & Ustad Shujaat Khan",
+    genre: "Bollywood Romance" as const,
+    votes: 38,
+    duration: "4:12",
+    suggestedBy: "Bride's Sister",
+    previewFrequency: 523.25
+  },
+  {
+    id: "track-3",
+    title: "Mast Magan (Sufi Qawwali Live Ensemble)",
+    artist: "Arijit Singh & Chinmayi",
+    genre: "Sufi & Qawwali" as const,
+    votes: 31,
+    duration: "4:40",
+    suggestedBy: "Aarav & Ananya",
+    previewFrequency: 392
+  },
+  {
+    id: "track-4",
+    title: "Balle Balle Ni Amritsar (High Energy)",
+    artist: "Sukhwinder Singh",
+    genre: "Bhangra & Dhol" as const,
+    votes: 27,
+    duration: "3:25",
+    suggestedBy: "Chacha Ji",
+    previewFrequency: 493.88
+  },
+  {
+    id: "track-5",
+    title: "Pehla Nasha (Vintage 90s Orchestral)",
+    artist: "Udit Narayan & Sadhana Sargam",
+    genre: "Retro 90s Golden" as const,
+    votes: 25,
+    duration: "4:50",
+    suggestedBy: "Masi & Fufa Ji",
+    previewFrequency: 587.33
+  },
+  {
+    id: "track-6",
+    title: "Chaudhary & Rajasthani Folk Fusion",
+    artist: "Mame Khan & Amit Trivedi",
+    genre: "Sufi & Qawwali" as const,
+    votes: 29,
+    duration: "4:32",
+    suggestedBy: "Jaipur Cultural Troop",
+    previewFrequency: 659.25
+  }
+];
+
+export const initialLanternWishes = [
+  {
+    id: "lantern-1",
+    author: "Grandma Gayatri",
+    wish: "May your home always be illuminated with deep peace, abundance, and eternal love.",
+    color: "gold" as const,
+    timestamp: "Just now",
+    xPos: 22
+  },
+  {
+    id: "lantern-2",
+    author: "Arjun & Rhea",
+    wish: "Dancing through every milestone hand-in-hand! Best couple forever!",
+    color: "rose" as const,
+    timestamp: "5 mins ago",
+    xPos: 48
+  },
+  {
+    id: "lantern-3",
+    author: "Uncle Rajesh",
+    wish: "Blessed with harmony, laughter, and unbreakable vows under the sacred sky.",
+    color: "emerald" as const,
+    timestamp: "12 mins ago",
+    xPos: 76
+  },
+  {
+    id: "lantern-4",
+    author: "Tanvi (Best Friend)",
+    wish: "To endless chai dates, world travels, and pure magic together!",
+    color: "violet" as const,
+    timestamp: "20 mins ago",
+    xPos: 35
+  }
+];
+
+export const conciergeGuide = {
+  venue: "The Royal Palace Resort & Spa, Jaipur",
+  address: "Palace Highway, Amber Foothills, Jaipur, Rajasthan 302028",
+  airportDistance: "24 km from Jaipur International Airport (JAI) (~35 mins via Airport Shuttle)",
+  railwayDistance: "14 km from Jaipur Junction Railway Station (~25 mins)",
+  weatherForecast: {
+    temp: "23°C",
+    condition: "Clear Winter Royal Skies",
+    humidity: "32%",
+    sunset: "5:38 PM (Golden Hour photo session)",
+    dressVibe: "Light shawls or Nehru jackets recommended for twilight open-air lawns."
+  },
+  helpline: "+91 141 289 0000 / concierge@royalpalacejaipur.com",
+  valetParking: "Complimentary 24/7 Royal Valet Parking available at Gate 1."
+};
+

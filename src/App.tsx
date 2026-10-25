@@ -15,6 +15,10 @@ import {
   Volume2,
   VolumeX,
   Award,
+  Palette,
+  Compass,
+  Radio,
+  Flame,
 } from "lucide-react";
 
 // Components
@@ -24,16 +28,21 @@ import { HeroSection } from "./components/HeroSection";
 import { CountdownSection } from "./components/CountdownSection";
 import { TimelineSection } from "./components/TimelineSection";
 import { RoyalItinerarySection } from "./components/RoyalItinerarySection";
+import { PalaceTourSection } from "./components/PalaceTourSection";
 import { SlideshowSection } from "./components/SlideshowSection";
 import { MemoryBookSection } from "./components/MemoryBookSection";
+import { SangeetJukebox } from "./components/SangeetJukebox";
+import { SkyLanternCeremony } from "./components/SkyLanternCeremony";
 import { LoveQuizSection } from "./components/LoveQuizSection";
 import { WishesWallSection } from "./components/WishesWallSection";
 import { FinalSection } from "./components/FinalSection";
 import { MusicPlayer } from "./components/MusicPlayer";
 import { RoyalEnvelopeModal } from "./components/RoyalEnvelopeModal";
 import { KeepsakeModal } from "./components/KeepsakeModal";
+import { RSVPModal } from "./components/RSVPModal";
 import { BlessingCannonFAB } from "./components/BlessingCannonFAB";
 import { soundFX } from "./utils/soundFX";
+import { ThemeMode } from "./types";
 
 interface Sparkle {
   id: number;
@@ -50,7 +59,10 @@ export default function App() {
   const [activeSection, setActiveSection] = useState("home");
   const [isEnvelopeOpen, setIsEnvelopeOpen] = useState(false);
   const [isKeepsakeOpen, setIsKeepsakeOpen] = useState(false);
+  const [isRSVPOpen, setIsRSVPOpen] = useState(false);
+  const [themeMode, setThemeMode] = useState<ThemeMode>("midnight");
   const [sfxEnabled, setSfxEnabled] = useState(true);
+
 
   // Track mouse move to generate cursor sparkle trails
   useEffect(() => {
@@ -78,6 +90,19 @@ export default function App() {
     return () => clearInterval(interval);
   }, []);
 
+  // Apply theme attribute to root
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", themeMode);
+  }, [themeMode]);
+
+  const cycleTheme = () => {
+    const themes: ThemeMode[] = ["midnight", "emerald", "ruby"];
+    const nextIdx = (themes.indexOf(themeMode) + 1) % themes.length;
+    const nextTheme = themes[nextIdx];
+    setThemeMode(nextTheme);
+    soundFX.playChime(1100);
+  };
+
   // Track scroll depth for active section highlighting and Scroll-To-Top button
   useEffect(() => {
     const handleScroll = () => {
@@ -94,8 +119,11 @@ export default function App() {
         { id: "countdown", el: document.getElementById("section-countdown") },
         { id: "timeline", el: document.getElementById("section-first-smile") },
         { id: "itinerary", el: document.getElementById("section-itinerary") },
+        { id: "palace", el: document.getElementById("section-palace-tour") },
         { id: "slideshow", el: document.getElementById("section-slideshow") },
         { id: "scrapbook", el: document.getElementById("section-memory-book") },
+        { id: "jukebox", el: document.getElementById("section-sangeet-jukebox") },
+        { id: "lanterns", el: document.getElementById("section-sky-lanterns") },
         { id: "quiz", el: document.getElementById("section-quiz") },
         { id: "wishes", el: document.getElementById("section-wishes") },
         { id: "vows", el: document.getElementById("section-final-ending") },
@@ -146,7 +174,11 @@ export default function App() {
   };
 
   return (
-    <div className="relative min-h-screen w-full bg-stone-950 font-sans text-stone-100 overflow-x-hidden selection:bg-amber-300/30 selection:text-amber-200">
+    <div
+      data-theme={themeMode}
+      className="relative min-h-screen w-full bg-stone-950 font-sans text-stone-100 overflow-x-hidden selection:bg-amber-300/30 selection:text-amber-200 transition-colors duration-700"
+    >
+
       {/* Dynamic Ambient Background Canvas (Petals, bokeh, sparkles) */}
       <AmbientBackground />
 
@@ -253,6 +285,18 @@ export default function App() {
                     <span className="text-stone-750 text-[9px]">•</span>
 
                     <button
+                      onClick={() => scrollToId("section-palace-tour")}
+                      className={`text-[9px] sm:text-xs tracking-wider font-mono uppercase whitespace-nowrap transition-colors flex items-center gap-1 ${
+                        activeSection === "palace" ? "text-amber-300 font-semibold" : "text-stone-400 hover:text-stone-100"
+                      }`}
+                    >
+                      <Compass className="w-3 h-3 hidden sm:inline" />
+                      Palace
+                    </button>
+
+                    <span className="text-stone-750 text-[9px]">•</span>
+
+                    <button
                       onClick={() => scrollToId("section-slideshow")}
                       className={`text-[9px] sm:text-xs tracking-wider font-mono uppercase whitespace-nowrap transition-colors flex items-center gap-1 ${
                         activeSection === "slideshow" ? "text-amber-300 font-semibold" : "text-stone-400 hover:text-stone-100"
@@ -272,6 +316,30 @@ export default function App() {
                     >
                       <BookOpen className="w-3 h-3 hidden sm:inline" />
                       Scrapbook
+                    </button>
+
+                    <span className="text-stone-750 text-[9px]">•</span>
+
+                    <button
+                      onClick={() => scrollToId("section-sangeet-jukebox")}
+                      className={`text-[9px] sm:text-xs tracking-wider font-mono uppercase whitespace-nowrap transition-colors flex items-center gap-1 ${
+                        activeSection === "jukebox" ? "text-amber-300 font-semibold" : "text-stone-400 hover:text-stone-100"
+                      }`}
+                    >
+                      <Radio className="w-3 h-3 hidden sm:inline" />
+                      Jukebox
+                    </button>
+
+                    <span className="text-stone-750 text-[9px]">•</span>
+
+                    <button
+                      onClick={() => scrollToId("section-sky-lanterns")}
+                      className={`text-[9px] sm:text-xs tracking-wider font-mono uppercase whitespace-nowrap transition-colors flex items-center gap-1 ${
+                        activeSection === "lanterns" ? "text-amber-300 font-semibold" : "text-stone-400 hover:text-stone-100"
+                      }`}
+                    >
+                      <Flame className="w-3 h-3 hidden sm:inline" />
+                      Lanterns
                     </button>
 
                     <span className="text-stone-750 text-[9px]">•</span>
@@ -313,13 +381,35 @@ export default function App() {
 
                   {/* Right: Quick Action Controls */}
                   <div className="flex items-center gap-2 pl-3 border-l border-stone-800 shrink-0">
+                    {/* RSVP Trigger Button */}
+                    <button
+                      onClick={() => {
+                        soundFX.playChime(1000);
+                        setIsRSVPOpen(true);
+                      }}
+                      className="px-2.5 py-1 rounded-full bg-amber-400 hover:bg-amber-300 text-stone-950 font-mono text-[10px] font-bold tracking-wider uppercase transition-colors flex items-center gap-1 cursor-pointer shadow-md shadow-amber-400/20"
+                      title="RSVP & Boarding Pass"
+                    >
+                      <Sparkles className="w-3 h-3" />
+                      RSVP
+                    </button>
+
+                    {/* Palace Theme Switcher */}
+                    <button
+                      onClick={cycleTheme}
+                      className="p-1.5 rounded-full bg-stone-900 border border-stone-800 hover:border-amber-300/40 text-amber-200 transition-colors flex items-center gap-1 text-[10px] font-mono cursor-pointer"
+                      title={`Theme: ${themeMode.toUpperCase()} (Click to change)`}
+                    >
+                      <Palette className="w-3.5 h-3.5" />
+                    </button>
+
                     {/* Unbox Envelope Modal */}
                     <button
                       onClick={() => {
                         soundFX.playWaxSealStamp();
                         setIsEnvelopeOpen(true);
                       }}
-                      className="p-1.5 rounded-full bg-stone-900 border border-stone-800 hover:border-amber-300/40 text-amber-200 transition-colors"
+                      className="p-1.5 rounded-full bg-stone-900 border border-stone-800 hover:border-amber-300/40 text-amber-200 transition-colors cursor-pointer"
                       title="Open Royal Envelope"
                     >
                       <Mail className="w-3.5 h-3.5" />
@@ -331,7 +421,7 @@ export default function App() {
                         soundFX.playChime(900);
                         setIsKeepsakeOpen(true);
                       }}
-                      className="p-1.5 rounded-full bg-stone-900 border border-stone-800 hover:border-amber-300/40 text-amber-200 transition-colors"
+                      className="p-1.5 rounded-full bg-stone-900 border border-stone-800 hover:border-amber-300/40 text-amber-200 transition-colors cursor-pointer"
                       title="Download Keepsake Card"
                     >
                       <Award className="w-3.5 h-3.5" />
@@ -340,7 +430,7 @@ export default function App() {
                     {/* Sound FX Toggle */}
                     <button
                       onClick={toggleSFX}
-                      className="p-1.5 rounded-full bg-stone-900 border border-stone-800 hover:border-amber-300/40 text-stone-300 transition-colors"
+                      className="p-1.5 rounded-full bg-stone-900 border border-stone-800 hover:border-amber-300/40 text-stone-300 transition-colors cursor-pointer"
                       title={sfxEnabled ? "Mute Sound Effects" : "Enable Sound Effects"}
                     >
                       {sfxEnabled ? (
@@ -360,6 +450,7 @@ export default function App() {
             onOpenStory={handleOpenStory}
             onOpenEnvelope={() => setIsEnvelopeOpen(true)}
             onOpenKeepsake={() => setIsKeepsakeOpen(true)}
+            onOpenRSVP={() => setIsRSVPOpen(true)}
           />
 
           {/* MULTI-SECTION CHRONOLOGY & ADVANCED EXPERIENCES */}
@@ -380,23 +471,32 @@ export default function App() {
                 {/* 3. The Royal Itinerary & Ceremonies */}
                 <RoyalItinerarySection />
 
-                {/* 4. Full screen cinematic photo slideshow */}
+                {/* 4. Interactive Palace Estate 360 & Jaipur Concierge */}
+                <PalaceTourSection />
+
+                {/* 5. Full screen cinematic photo slideshow */}
                 <section id="section-slideshow" className="w-full bg-stone-950/40 border-y border-stone-900/60">
                   <SlideshowSection />
                 </section>
 
-                {/* 5. Physical scrapbook pages with polaroids */}
+                {/* 6. Physical scrapbook pages with polaroids */}
                 <section id="section-memory-book" className="w-full">
                   <MemoryBookSection />
                 </section>
 
-                {/* 6. Romantic Couple Trivia Challenge */}
+                {/* 7. The Royal Sangeet DJ Jukebox & Dance Floor Voting */}
+                <SangeetJukebox />
+
+                {/* 8. Deep Daan & Sky Lanterns Ceremony */}
+                <SkyLanternCeremony />
+
+                {/* 9. Romantic Couple Trivia Challenge */}
                 <LoveQuizSection />
 
-                {/* 7. Digital Guestbook & Live Wishes Wall */}
+                {/* 10. Digital Guestbook & Live Wishes Wall */}
                 <WishesWallSection />
 
-                {/* 8. Grand Finale Lanterns / Overlapping Rings */}
+                {/* 11. Grand Finale Lanterns / Overlapping Rings */}
                 <FinalSection />
               </motion.div>
             )}
@@ -438,8 +538,15 @@ export default function App() {
             isOpen={isKeepsakeOpen}
             onClose={() => setIsKeepsakeOpen(false)}
           />
+
+          {/* DIGITAL RSVP & ROYAL BOARDING PASS MODAL */}
+          <RSVPModal
+            isOpen={isRSVPOpen}
+            onClose={() => setIsRSVPOpen(false)}
+          />
         </div>
       )}
     </div>
   );
 }
+

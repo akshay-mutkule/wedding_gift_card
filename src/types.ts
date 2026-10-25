@@ -63,6 +63,56 @@ export interface QuizQuestion {
   funFact: string;
 }
 
+export type ThemeMode = "midnight" | "emerald" | "ruby";
+
+export interface RSVPRecord {
+  id: string;
+  passCode: string;
+  guestName: string;
+  email: string;
+  phone: string;
+  attending: "yes" | "no";
+  guestCount: number;
+  ceremonies: string[];
+  dietary: "Royal Mughlai Feast" | "Pure Vegetarian Feast" | "Jain Traditional" | "Vegan & Gluten-Free";
+  songRequest: string;
+  personalNote: string;
+  createdAt: string;
+}
+
+export interface PalaceHotspot {
+  id: string;
+  name: string;
+  hindiTitle: string;
+  subtitle: string;
+  description: string;
+  timing: string;
+  vibe: string;
+  features: string[];
+  image: string;
+  mapCoordinates: { x: number; y: number }; // percentage on interactive palace map
+}
+
+export interface JukeboxSong {
+  id: string;
+  title: string;
+  artist: string;
+  genre: "Bhangra & Dhol" | "Bollywood Romance" | "Sufi & Qawwali" | "Retro 90s Golden";
+  votes: number;
+  duration: string;
+  suggestedBy?: string;
+  previewFrequency?: number;
+}
+
+export interface LanternWish {
+  id: string;
+  author: string;
+  wish: string;
+  color: "gold" | "rose" | "emerald" | "violet";
+  timestamp: string;
+  xPos: number; // percentage 5 - 90
+}
+
 export interface WeddingData {
   couple: {
     groom: string;
@@ -81,3 +131,4 @@ export interface WeddingData {
   quiz: QuizQuestion[];
   initialBlessings: GuestBlessing[];
 }
+
